@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HerdController;
 use App\Http\Controllers\ProducerController;
 use App\Http\Controllers\ProductionUnitController;
 use App\Http\Controllers\RuralPropertyController;
@@ -29,6 +30,13 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/', [ProductionUnitController::class, 'store']);
         Route::put('/{productionUnit}', [ProductionUnitController::class, 'update']);
         Route::delete('/{productionUnit}', [ProductionUnitController::class, 'destroy']);
+    });
+
+    Route::prefix('herd')->group(function(){
+        Route::get('/', [HerdController::class, 'index']);
+        Route::post('/', [HerdController::class, 'store']);
+        Route::put('/{herd}', action: [HerdController::class, 'update']);
+        Route::delete('/{herd}', [HerdController::class, 'destroy']);
     });
 });
 
