@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProducerController;
+use App\Http\Controllers\ProductionUnitController;
 use App\Http\Controllers\RuralPropertyController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,13 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/', [RuralPropertyController::class, 'store']);
         Route::put('/{ruralProperty}', [RuralPropertyController::class, 'update']);
         Route::delete('/{ruralProperty}', [RuralPropertyController::class, 'destroy']);
+    });
+
+    Route::prefix('production-unit')->group(function(){
+        Route::get('/', [ProductionUnitController::class, 'index']);
+        Route::post('/', [ProductionUnitController::class, 'store']);
+        Route::put('/{productionUnit}', [ProductionUnitController::class, 'update']);
+        Route::delete('/{productionUnit}', [ProductionUnitController::class, 'destroy']);
     });
 });
 
