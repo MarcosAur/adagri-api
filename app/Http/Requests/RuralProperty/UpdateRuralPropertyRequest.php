@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Producer;
+namespace App\Http\Requests\RuralProperty;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateProducerRequest extends FormRequest
+class UpdateRuralPropertyRequest extends FormRequest
 {
 
     public function authorize(): bool
@@ -16,15 +16,14 @@ class UpdateProducerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'producer.name' => ['required', 'string'],
-            'producer.document' => [
+            'rural_property.name' => ['required', 'string'],
+            'rural_property.state_registration' => [
                 'required',
                 'string',
-                Rule::unique('producers', 'document')->ignore($this->route('producer')),
-            ],            
-            'producer.phone' => ['required', 'string'],
-            'producer.email' => ['required', 'string'],
-            'producer.register_date' => ['required', 'date'],
+                Rule::unique('rural_properties', 'state_registration')->ignore($this->route('ruralProperty')),
+            ],
+            'rural_property.total_area' => ['required', 'numeric'],
+            'rural_property.producer_id' => ['required', 'exists:producers,id'],
             'address.address' => ['required', 'string'],
             'address.number' => ['required', 'string'],
             'address.city' => ['required', 'string'],

@@ -6,12 +6,12 @@ use App\Models\Address;
 
 class StoreAddressService
 {
-    public function run(array $data, int $addressableId, string $addressableType): bool
+    public function run(array $data, int $addressableId, string $addressableType): Address
     {
         $data['addressable_id'] = $addressableId;
         $data['addressable_type'] = $addressableType;
         $address = Address::create($data);
 
-        return $address->delete();
+        return $address;
     }
 }
