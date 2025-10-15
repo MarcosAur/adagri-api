@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RuralProperty\IndexRuralPropertyRequest;
 use App\Http\Requests\RuralProperty\StoreRuralPropertyRequest;
 use App\Http\Requests\RuralProperty\UpdateRuralPropertyRequest;
 use App\Models\RuralProperty;
@@ -13,14 +14,16 @@ use App\Services\RuralProperty\DeleteRuralPropertyService;
 use App\Services\RuralProperty\IndexRuralPropertyService;
 use App\Services\RuralProperty\StoreRuralPropertyService;
 use App\Services\RuralProperty\UpdateRuralPropertyService;
-use Illuminate\Contracts\Cache\Store;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class RuralPropertyController extends Controller
 {
-    public function index(IndexRuralPropertyService $indexRuralPropertyService){
-        $ruralProperties = $indexRuralPropertyService->run([]);
+    public function index(
+        IndexRuralPropertyRequest $indexRuralPropertyRequest,
+        IndexRuralPropertyService $indexRuralPropertyService
+    ){
+        $data = $indexRuralPropertyRequest->validated();
+        $ruralProperties = $indexRuralPropertyService->run($data);
         return response()->json($ruralProperties);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Producer\IndexProducerRequest;
 use App\Http\Requests\Producer\StoreProducerRequest;
 use App\Http\Requests\Producer\UpdateProducerRequest;
 use App\Models\Producer;
@@ -16,8 +17,12 @@ use Illuminate\Support\Facades\DB;
 
 class ProducerController extends Controller
 {
-    public function index(IndexProducerService $indexProducerService){
-        $producers = $indexProducerService->run([]);
+    public function index(
+        IndexProducerRequest $indexProducerRequest,
+        IndexProducerService $indexProducerService
+    ){
+        $data = $indexProducerRequest->validated();
+        $producers = $indexProducerService->run($data);
         return response()->json($producers);
     }
 

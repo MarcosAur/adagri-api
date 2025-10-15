@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Herd\IndexHerdRequest;
 use App\Http\Requests\Herd\StoreHerdRequest;
 use App\Http\Requests\Herd\UpdateHerdRequest;
 use App\Models\Herd;
@@ -13,9 +14,11 @@ use App\Services\Herd\UpdateHerdService;
 class HerdController extends Controller
 {
     public function index(
+        IndexHerdRequest $indexHerdRequest,
         IndexHerdService $indexHerdService
     ){
-        $herds = $indexHerdService->run([]);
+        $data = $indexHerdRequest->validated();
+        $herds = $indexHerdService->run($data);
         return response()->json($herds, 200);
     }
 

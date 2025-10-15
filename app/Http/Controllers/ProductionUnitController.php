@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Producer\StoreProducerRequest;
+use App\Http\Requests\ProductionUnit\IndexProductionUnitRequest;
 use App\Http\Requests\ProductionUnit\StoreProductionUnitRequest;
 use App\Http\Requests\ProductionUnit\UpdateProductionUnitRequest;
 use App\Models\ProductionUnit;
 use App\Services\Producer\IndexProducerService;
 use App\Services\Producer\StoreProducerService;
 use App\Services\ProductionUnit\DeleteProductionUnitService;
+use App\Services\ProductionUnit\IndexProductionUnitService;
 use App\Services\ProductionUnit\StoreProductionUnitService;
 use App\Services\ProductionUnit\UpdateProductionUnitService;
 use Illuminate\Contracts\Cache\Store;
@@ -16,8 +18,12 @@ use Illuminate\Http\Request;
 
 class ProductionUnitController extends Controller
 {
-    public function index(IndexProducerService $indexProducerService){
-        $productionUnits = $indexProducerService->run([]);
+    public function index(
+        IndexProductionUnitRequest $indexProductionUnitRequest,
+        IndexProductionUnitService $indexProductionUnitService
+    ){
+        $data = $indexProductionUnitRequest->validated();
+        $productionUnits = $indexProductionUnitService->run($data);
         return response()->json($productionUnits);
     }
 
