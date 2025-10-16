@@ -17,7 +17,7 @@ class ProductionUnit extends Model
         'rural_property_id',
     ];
 
-    public function productionUnit(): BelongsTo{
+    public function ruralProperty(): BelongsTo{
         return $this->belongsTo(RuralProperty::class);
     }
 }

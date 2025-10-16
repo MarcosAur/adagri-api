@@ -4,10 +4,11 @@ namespace App\Services\RuralProperty;
 
 use App\Models\RuralProperty;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class IndexRuralPropertyService
 {
-    public function run(array $data): LengthAwarePaginator
+    public function run(array $data): LengthAwarePaginator | Collection
     {
         $nameFilter = $data['filters']['name'] ?? null;
         $stateRegistrationFilter = $data['filters']['state_registration'] ?? null;
@@ -25,6 +26,10 @@ class IndexRuralPropertyService
                 $query->where('producer_id', $producerIdFilter);
             })
             ->orderBy('created_at','desc')
-            ->paginate($perPageFilter);
+            ->when(isset($data['filters']['per_page']), function ($query) use ($perPageFilter){
+                return $query->paginate($perPageFilter);
+            }, function($query){
+                return $query->get();
+            });
     }
 }

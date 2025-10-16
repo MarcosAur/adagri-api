@@ -19,6 +19,6 @@ class StoreProductionUnitRequest extends FormRequest
             'latitude' => ['required', 'string'],
             'longitude' => ['required', 'string'],
             'rural_property_id' => ['required', 'exists:rural_properties,id'],
-        ];
+        ];  
     }
 }
