@@ -12,6 +12,7 @@ class IndexHerdService
     {
         $specieFilter = $data['filters']['species'] ?? null;
         $ruralPropertyFilter = $data['filters']['rural_property_id'] ?? null;
+        $perPageFilter = $data['filters']['per_page'] ?? 10;
 
         return Herd::when($specieFilter, function ($query) use ($specieFilter) {
                 $query->where('species', 'like', '%' . $specieFilter . '%');
@@ -19,6 +20,6 @@ class IndexHerdService
             ->when($ruralPropertyFilter, function ($query) use ($ruralPropertyFilter) {
                 $query->where('rural_property_id', $ruralPropertyFilter);
             })
-            ->paginate(10);
+            ->paginate($perPageFilter);
     }
 }

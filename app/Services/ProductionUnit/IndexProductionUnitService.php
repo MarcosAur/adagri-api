@@ -13,6 +13,7 @@ class IndexProductionUnitService
 
         $nameFilter = $data['filters']['name'] ?? null;
         $ruralPropertyIdFilter = $data['filters']['rural_property_id'] ?? null;
+        $perPageFilter = $data['filters']['per_page'] ?? 10;
 
         return ProductionUnit::when($nameFilter, function ($query) use ($nameFilter) {
                 $query->where('name', 'like', '%' . $nameFilter . '%');
@@ -20,6 +21,6 @@ class IndexProductionUnitService
             ->when($ruralPropertyIdFilter, function ($query) use ($ruralPropertyIdFilter) {
                 $query->where('rural_property_id', $ruralPropertyIdFilter);
             })
-            ->paginate(10);
+            ->paginate($perPageFilter);
     }
 }

@@ -16,6 +16,7 @@ class IndexHerdRequest extends FormRequest
         return [
             'filters.species' => ['nullable'],
             'filters.rural_property_id' => ['nullable'],
+            'filters.per_page' => ['nullable'],
         ];
     }
 }

@@ -17,6 +17,7 @@ class IndexRuralPropertyRequest extends FormRequest
             'filters.name' => ['nullable'],
             'filters.state_registration' => ['nullable'],
             'filters.producer_id' => ['nullable'],
+            'filters.per_page' => ['nullable'],
         ];
     }
 }

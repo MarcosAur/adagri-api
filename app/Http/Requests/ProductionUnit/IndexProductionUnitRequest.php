@@ -15,7 +15,8 @@ class IndexProductionUnitRequest extends FormRequest
     {
         return [
             'filters.name' => ['nullable'],
-            'filters.rural_property_id' => ['nullable']
+            'filters.rural_property_id' => ['nullable'],
+            'filters.per_page' => ['nullable'],
         ];
     }
 }

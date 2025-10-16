@@ -13,6 +13,7 @@ class IndexProducerService
         $documentFilter = $data['filters']['document'] ?? null;
         $phoneFilter = $data['filters']['phone'] ?? null;
         $emailFilter = $data['filters']['email'] ?? null;
+        $perPageFilter = $data['filters']['per_page'] ?? 10;
     
 
         return Producer::when($nameFilter, function ($query, $nameFilter) {
@@ -27,6 +28,6 @@ class IndexProducerService
             ->when($emailFilter, function ($query, $emailFilter) {
                 $query->where('email', 'like', '%' . $emailFilter . '%');
             })
-            ->paginate(10);
+            ->paginate($perPageFilter);
     }
 }

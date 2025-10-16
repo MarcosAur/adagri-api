@@ -18,6 +18,7 @@ class IndexProducerRequest extends FormRequest
             'filters.document' => ['nullable'],
             'filters.phone' => ['nullable'],
             'filters.email' => ['nullable'],
+            'filters.per_page' => ['nullable'],
         ];
     }
 }
