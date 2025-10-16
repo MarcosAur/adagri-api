@@ -65,9 +65,10 @@ class RuralPropertyController extends Controller
         RuralProperty $ruralProperty
     ){
         $returnValue = DB::transaction(function () use ($deleteRuralPropertyService, $deleteAddressService, $ruralProperty){
-            $deleteAddressService->run($ruralProperty->address);
             $deleteRuralPropertyService->run($ruralProperty);
+            $deleteAddressService->run($ruralProperty->address);
+            return true;
         });
-        return response()->json($returnValue, 200);
+        return $returnValue ? response()->json($returnValue, 200) : response()->json($returnValue, 500);
     }
 }

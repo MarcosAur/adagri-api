@@ -14,7 +14,8 @@ class IndexRuralPropertyService
         $producerIdFilter = $data['filters']['producer_id'] ?? null;
         $perPageFilter = $data['filters']['per_page'] ?? 10;
 
-        return RuralProperty::when($nameFilter, function ($query, $nameFilter) {
+        return RuralProperty::with(['address', 'producer'])
+            ->when($nameFilter, function ($query, $nameFilter) {
                 $query->where('name', 'like', '%' . $nameFilter . '%');
             })
             ->when($stateRegistrationFilter, function ($query, $stateRegistrationFilter) {
@@ -23,6 +24,7 @@ class IndexRuralPropertyService
             ->when($producerIdFilter, function ($query, $producerIdFilter) {
                 $query->where('producer_id', $producerIdFilter);
             })
+            ->orderBy('created_at','desc')
             ->paginate($perPageFilter);
     }
 }

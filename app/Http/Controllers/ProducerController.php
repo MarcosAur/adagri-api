@@ -59,10 +59,11 @@ class ProducerController extends Controller
     public function destroy(Producer $producer, DeleteAddressService $deleteAddressService, DeleteProducerService $deleteProducerService){
         
         $deleted = DB::transaction(function () use ($producer, $deleteAddressService, $deleteProducerService){
-            $deleteAddressService->run($producer->address);
             $deleteProducerService->run($producer);
+            $deleteAddressService->run($producer->address);
+            return true;
         });
 
-        return response()->json($deleted, 200);
+        return $deleted ? response()->json($deleted, 200) : response()->json($deleted, 500);
     }
 }
