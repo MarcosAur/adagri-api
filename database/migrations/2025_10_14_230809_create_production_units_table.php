@@ -15,7 +15,7 @@ return new class extends Migration
             $table->double('total_area_ha');
             $table->string('latitude');
             $table->string('longitude');
-            $table->foreignIdFor(RuralProperty::class);
+            $table->foreignIdFor(RuralProperty::class)->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

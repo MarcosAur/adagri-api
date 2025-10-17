@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('state_registration');
             $table->double('total_area');
-            $table->foreignIdFor(Producer::class);
+            $table->foreignIdFor(Producer::class)->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

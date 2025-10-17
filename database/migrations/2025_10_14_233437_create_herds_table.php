@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('purpose');
             $table->timestamp('last_update_date');
-            $table->foreignIdFor(RuralProperty::class);
+            $table->foreignIdFor(RuralProperty::class)->constrained();
             $table->softDeletes();
             $table->timestamps();
         });
