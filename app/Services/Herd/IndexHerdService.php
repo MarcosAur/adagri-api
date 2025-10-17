@@ -14,12 +14,18 @@ class IndexHerdService
         $ruralPropertyFilter = $data['filters']['rural_property_id'] ?? null;
         $perPageFilter = $data['filters']['per_page'] ?? 10;
 
-        return Herd::when($specieFilter, function ($query) use ($specieFilter) {
+        return Herd::with(['ruralProperty'])
+            ->when($specieFilter, function ($query) use ($specieFilter) {
                 $query->where('species', 'like', '%' . $specieFilter . '%');
             })
             ->when($ruralPropertyFilter, function ($query) use ($ruralPropertyFilter) {
                 $query->where('rural_property_id', $ruralPropertyFilter);
             })
-            ->paginate($perPageFilter);
+            ->orderBy('created_at','desc')
+            ->when(isset($data['filters']['per_page']), function ($query) use ($perPageFilter){
+                return $query->paginate($perPageFilter);
+            }, function($query){
+                return $query->get();
+            });
     }
 }
