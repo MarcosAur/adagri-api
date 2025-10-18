@@ -15,7 +15,7 @@ API do sistema **ADAGRI**, desenvolvida em **Laravel**, com ambiente totalmente 
 ---
 
 ## Instruções de Instalação
-
+- Criar uma cópia do arquivo arquivo .env.exemple com o nome .env
 - Executar o comando para que os containers sejam carregados
 ```bash
 docker compose up -d
