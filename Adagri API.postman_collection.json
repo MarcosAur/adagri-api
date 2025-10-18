@@ -1,0 +1,1105 @@
+{
+	"info": {
+		"_postman_id": "8b8d2e73-bded-4652-b112-1cc4edf08e2a",
+		"name": "Adagri API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24060928"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "teste@teste.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Producer",
+			"item": [
+				{
+					"name": "Index Producer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/producer?filters[per_page]=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"producer"
+							],
+							"query": [
+								{
+									"key": "filters[name]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filters[document]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filters[phone]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filters[email]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filters[per_page]",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Producer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "producer[name]",
+									"value": "Produtor Rural Teste 2",
+									"type": "text"
+								},
+								{
+									"key": "producer[document]",
+									"value": "111.111.111-12",
+									"type": "text"
+								},
+								{
+									"key": "producer[phone]",
+									"value": "(85)99999-9988",
+									"type": "text"
+								},
+								{
+									"key": "producer[email]",
+									"value": "produtor.teste.2@teste.com",
+									"type": "text"
+								},
+								{
+									"key": "producer[register_date]",
+									"value": "2025-10-13 10:00:00",
+									"type": "text"
+								},
+								{
+									"key": "address[address]",
+									"value": "Rua teste",
+									"type": "text"
+								},
+								{
+									"key": "address[number]",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "address[city]",
+									"value": "Fortaleza",
+									"type": "text"
+								},
+								{
+									"key": "address[state]",
+									"value": "Ceará",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/producer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"producer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Producer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "producer[name]",
+									"value": "Produtor Rural Teste Atualizado",
+									"type": "text"
+								},
+								{
+									"key": "producer[document]",
+									"value": "111.111.111-22",
+									"type": "text"
+								},
+								{
+									"key": "producer[phone]",
+									"value": "(85)95555-5555",
+									"type": "text"
+								},
+								{
+									"key": "producer[email]",
+									"value": "produtor.teste.atualizado@teste.com",
+									"type": "text"
+								},
+								{
+									"key": "producer[register_date]",
+									"value": "2025-10-13 10:00:00",
+									"type": "text"
+								},
+								{
+									"key": "address[address]",
+									"value": "Rua teste",
+									"type": "text"
+								},
+								{
+									"key": "address[number]",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "address[city]",
+									"value": "Fortaleza",
+									"type": "text"
+								},
+								{
+									"key": "address[state]",
+									"value": "Ceará",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/producer/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"producer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Producer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/producer/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"producer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rural Property",
+			"item": [
+				{
+					"name": "Index Rural Property",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rural-property?filters[per_page]=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rural-property"
+							],
+							"query": [
+								{
+									"key": "filters[name]",
+									"value": "Pro",
+									"disabled": true
+								},
+								{
+									"key": "filters[state_registration]",
+									"value": "13",
+									"disabled": true
+								},
+								{
+									"key": "filters[producer_id]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "filters[per_page]",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Rural Property",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "producer[name]",
+									"value": "Produtor Rural Teste 2",
+									"type": "text"
+								},
+								{
+									"key": "producer[document]",
+									"value": "111.111.111-12",
+									"type": "text"
+								},
+								{
+									"key": "producer[phone]",
+									"value": "(85)99999-9988",
+									"type": "text"
+								},
+								{
+									"key": "producer[email]",
+									"value": "produtor.teste.2@teste.com",
+									"type": "text"
+								},
+								{
+									"key": "producer[register_date]",
+									"value": "2025-10-13 10:00:00",
+									"type": "text"
+								},
+								{
+									"key": "address[address]",
+									"value": "Rua teste",
+									"type": "text"
+								},
+								{
+									"key": "address[number]",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "address[city]",
+									"value": "Fortaleza",
+									"type": "text"
+								},
+								{
+									"key": "address[state]",
+									"value": "Ceará",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rural-property?rural_property[name]=Propriedade 1&rural_property[state_registration]=1234&rural_property[total_area]=123.56&rural_property[producer_id]=1&address[address]=Rua teste&address[number]=123&address[city]=Fortaleza&address[state]=Ceará",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rural-property"
+							],
+							"query": [
+								{
+									"key": "rural_property[name]",
+									"value": "Propriedade 1"
+								},
+								{
+									"key": "rural_property[state_registration]",
+									"value": "1234"
+								},
+								{
+									"key": "rural_property[total_area]",
+									"value": "123.56"
+								},
+								{
+									"key": "rural_property[producer_id]",
+									"value": "1"
+								},
+								{
+									"key": "address[address]",
+									"value": "Rua teste"
+								},
+								{
+									"key": "address[number]",
+									"value": "123"
+								},
+								{
+									"key": "address[city]",
+									"value": "Fortaleza"
+								},
+								{
+									"key": "address[state]",
+									"value": "Ceará"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Rural Property",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "producer[name]",
+									"value": "Produtor Rural Teste Atualizado",
+									"type": "text"
+								},
+								{
+									"key": "producer[document]",
+									"value": "111.111.111-11",
+									"type": "text"
+								},
+								{
+									"key": "producer[phone]",
+									"value": "(85)95555-5555",
+									"type": "text"
+								},
+								{
+									"key": "producer[email]",
+									"value": "produtor.teste.atualizado@teste.com",
+									"type": "text"
+								},
+								{
+									"key": "producer[register_date]",
+									"value": "2025-10-13 10:00:00",
+									"type": "text"
+								},
+								{
+									"key": "address[address]",
+									"value": "Rua teste",
+									"type": "text"
+								},
+								{
+									"key": "address[number]",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "address[city]",
+									"value": "Fortaleza",
+									"type": "text"
+								},
+								{
+									"key": "address[state]",
+									"value": "Ceará",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/rural-property/1?rural_property[name]=Propriedade 1 Atualizada&rural_property[state_registration]=4321&rural_property[total_area]=247.12&rural_property[producer_id]=1&address[address]=Rua teste Atualizada&address[number]=321&address[city]=Fortaleza&address[state]=Ceará",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rural-property",
+								"1"
+							],
+							"query": [
+								{
+									"key": "rural_property[name]",
+									"value": "Propriedade 1 Atualizada"
+								},
+								{
+									"key": "rural_property[state_registration]",
+									"value": "4321"
+								},
+								{
+									"key": "rural_property[total_area]",
+									"value": "247.12"
+								},
+								{
+									"key": "rural_property[producer_id]",
+									"value": "1"
+								},
+								{
+									"key": "address[address]",
+									"value": "Rua teste Atualizada"
+								},
+								{
+									"key": "address[number]",
+									"value": "321"
+								},
+								{
+									"key": "address[city]",
+									"value": "Fortaleza"
+								},
+								{
+									"key": "address[state]",
+									"value": "Ceará"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rural Property",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/rural-property/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rural-property",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Production Unit",
+			"item": [
+				{
+					"name": "Index Production Unit",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/production-unit?filters[per_page]=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"production-unit"
+							],
+							"query": [
+								{
+									"key": "filters[name]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filters[rural_property_id]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filters[per_page]",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Production Unit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Melancia Crimson Sweet",
+									"type": "text"
+								},
+								{
+									"key": "total_area_ha",
+									"value": " 12",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": " 1,234",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": " 21,87328",
+									"type": "text"
+								},
+								{
+									"key": "rural_property_id",
+									"value": " 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/production-unit",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"production-unit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Production Unit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Goiaba Paluma",
+									"type": "text"
+								},
+								{
+									"key": "total_area_ha",
+									"value": " 123",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": " 1,2345",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": " 21,873285",
+									"type": "text"
+								},
+								{
+									"key": "rural_property_id",
+									"value": " 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/production-unit/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"production-unit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Production Unit",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/production-unit/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"production-unit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Herd",
+			"item": [
+				{
+					"name": "Index Herd",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/herd?filters[per_page]=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"herd"
+							],
+							"query": [
+								{
+									"key": "filters[per_page]",
+									"value": "1"
+								},
+								{
+									"key": "filters[species]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filters[rural_property_id]",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Herd",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "species",
+									"value": "Suínos",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "purpose",
+									"value": "Abate",
+									"type": "text"
+								},
+								{
+									"key": "last_update_date",
+									"value": "2025-10-14 00:00:00",
+									"type": "text"
+								},
+								{
+									"key": "rural_property_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/herd",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"herd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Herd",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "species",
+									"value": "Caprinos",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "purpose",
+									"value": "Abate",
+									"type": "text"
+								},
+								{
+									"key": "last_update_date",
+									"value": "2025-10-15 00:00:00",
+									"type": "text"
+								},
+								{
+									"key": "rural_property_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/herd/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"herd",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Herd",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/herd/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"herd",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Herds Per Producer Report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/report/pdf-report",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"report",
+								"pdf-report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Properties Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/report/rural-properties-xlsx",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"report",
+								"rural-properties-xlsx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Overview Graphics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/report/overview-graphics?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"report",
+								"overview-graphics"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "url",
+			"value": ""
+		}
+	]
+}

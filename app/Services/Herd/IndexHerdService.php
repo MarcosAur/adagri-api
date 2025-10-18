@@ -4,11 +4,11 @@ namespace App\Services\Herd;
 
 use App\Models\Herd;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection;
 
 class IndexHerdService
 {
-    public function run(array $data): LengthAwarePaginator
+    public function run(array $data): LengthAwarePaginator | Collection
     {
         $specieFilter = $data['filters']['species'] ?? null;
         $ruralPropertyFilter = $data['filters']['rural_property_id'] ?? null;
