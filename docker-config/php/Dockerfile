@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd pdo pdo_pgsql zip \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN chmod -R 777 ../..
+
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html

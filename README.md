@@ -25,6 +25,7 @@ docker compose up -d
 
 ```bash
 docker exec -it application_api bash
+composer install
 php artisan migrate
 php artisan db:seed
 php artisan storage:link
