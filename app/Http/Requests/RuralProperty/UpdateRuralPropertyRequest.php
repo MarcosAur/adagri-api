@@ -19,7 +19,6 @@ class UpdateRuralPropertyRequest extends FormRequest
             'rural_property.name' => ['required', 'string'],
             'rural_property.state_registration' => [
                 'required',
-                'string',
                 Rule::unique('rural_properties', 'state_registration')->ignore($this->route('ruralProperty')),
             ],
             'rural_property.total_area' => ['required', 'numeric'],
